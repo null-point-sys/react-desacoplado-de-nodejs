@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>un título</title>
+    <meta charset="UTF-8" />
+    <style>
+      .letra-color-azul {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/react@16.6.1/umd/react.development.js"
+    ></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">
+      const app = document.getElementById('app');
+      class Contenedor extends React.Component {
+        state = { // esta es la declaración del estado del componente
+          clicks: 0 // este es el estado que guarda el número de clicks en el botón
+        };
+        handleClick = () => { // esta es la función que maneja el cambio de estado cuándo se da click en el botón
+          let { clicks } = this.state; //acá se toma el estado actual
+          clicks++; //acá se aumenta en 1 el número de clicks
+          this.setState({ clicks }); //acá se actualiza el estado
+        };
+        render() {
+          return (
+            <div>
+              <div>PROP: {this.props.texto}</div>
+              <div>ESTADO: {this.state.clicks}</div>
+              <button onClick={this.handleClick}>click acá</button> //acá se asigna al botón la función que maneja el estado de los clicks
+            </div>
+          );
+        }
+      }
+      const texto = 'hola soy el prop texto';
+      ReactDOM.render(<Contenedor texto={texto} />, app);
+    </script>
+  </body>
+</html>
