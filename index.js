@@ -18,6 +18,13 @@
                             <div> Nombre: {texto}                   </div>  // En esta línea se puede ver cómo se pueden inyectar variables de javascript con template brackets
                             <div> Fecha:  {Date().toLocaleString()} </div>  // Acá se muestra cómo se pueden usar expresiones javascript dentro de JSX 
                          </div>);
+      const Contenedor = ({ nombre }) => <div>hola {nombre}</div>; // function component (stateless) recibiendo propiedades desestructuradas
+      const nombre     = 'nuevo nombre'; // variable para pasar al nombre
+      ReactDOM.render(<Contenedor nombre={nombre} />, app); // pasar la propiedad parecido a elementos html nativos
+    </script>
+  </body>
+</html>
+
       ReactDOM.render(elemento, app);
     </script>
   </body>
