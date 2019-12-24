@@ -13,6 +13,8 @@
     <script type="text/javascript" src="https://unpkg.com/react@16.6.1/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-jsonschema-form@1.0.3/dist/react-jsonschema-form.js"></script>
+
     <script type="text/babel">
       const app = document.getElementById('app');
       class Contenedor extends React.Component {
@@ -37,5 +39,17 @@
       const texto = 'hola soy el prop texto';
       ReactDOM.render(<Contenedor texto={texto} />, app);
     </script>
+    
+    <script type="text/babel">
+      const fields = JSONSchemaForm.default                        
+      return(
+       <Form schema={schema}
+             uiSchema={uiSchema}   
+             field={fields}  
+             onSubmit={onSubmit} >   
+       </Form>
+      )   
+   </script>
+    
   </body>
 </html>
